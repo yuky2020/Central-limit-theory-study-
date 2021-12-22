@@ -1,0 +1,220 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{float}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Central limit theorem}
+\author{Matteo Bianchi}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+  Statistics project for the course of statistics of Cybersecurity at Sapienza.
+  I choose the Central limit theorem and in particular i concentrate my analysis  on  history, motivation,intuition and  all the math details behind the theorem
+\end{abstract}
+
+\section{Introduction}
+
+\section{Historical context}
+\subsection{Discovery of the Normal curve}
+The normal curve is perhaps the most important probability graph in all of statistics.
+Its formula is shown here with a
+familiar picture. The “e” in the formula
+is the irrational number we use as the
+base for natural logarithms. μ and σ are
+the mean and standard deviation of the
+curve
+Formula THAATH I NEED TO REWERITE
+\subsection{Abram De Moivre Discoveries}
+De Moivre pioneered the development of analytic geometry and the theory of probability by expanding upon the work of his predecessors, particularly Christiaan Huygens and several members of the Bernoulli family. He also produced the second textbook on probability theory.He was a consultant for  gamblers, in fact he derive the formula trying to  solving a gambling
+problem whose solution depended on finding the sum of the terms of a binomial distribution. Later work,especially by Gauss about 1800, used the normal distribution to describe the pattern of random
+measurement error in observational data. Neither man used the name “normal curve.” That expression did not appear until the 1870s.
+The normal curve formula appears in mathematics as a limiting case of what would happen if you had an
+infinite number of data points. To prove mathematically that some theoretical distribution is actually
+normal you have to be familiar with the idea of limits, with adding up more and more smaller and smaller
+terms. This process is a fundamental component of calculus. So it’s not surprising that the formula first
+appeared at the same time the basic ideas of calculus were being developed in England and Europe in the
+late 17th and early 18th centuries.
+The normal curve formula first appeared in a paper by DeMoivre in 1733. He lived in
+England, having left France when he was about 20 years old. Many French
+Protestants, the Huguenots, left France when the King canceled the Edict of Nantes
+which had given them civil rights. In England DeMoivre became a good friend of
+Isaac Newton and other prominent mathematicians.
+He wrote the 1733 paper in Latin, and in 1738 he translated it himself into English for
+the 2nd edition of his book, The Doctrine of Chances, one of the first textbooks on
+probability. (The first edition had been published in 1718.)
+In DeMoivre’s work the normal curve formula did not look like it does now, in particular because there
+was no notation then for e. and there was no general sense of standard deviation, which is represented by σ in today’s equation.
+\subsubsection{Why did DeMoivre do it? What problem was he working on?}
+he is dealing with
+“Problems of Chance,” that he wants
+to see how likely it is that an
+“experiment” will produce a given
+outcome. Note that he credits the
+Bernoulli brothers with prior work –
+but they just didn’t do quite enough.
+The core problem for DeMoivre is to
+find the sum of “several” terms in a
+binomial expansion. He wanted a
+shortcut because the problem was “so
+laborious.”
+DeMoivre wanted to avoid having to add up all these coefficients. He needed to describe the general
+shape of the distribution of the values on a line of coefficients without having to compute each one. We can see what happens with a few graphs.
+A clear example of this problem can be seen in:
+\begin{table}[H]
+\centering
+\begin{tabular}{c|c|c|c}
+  n &  Expansion of (a+b))^n & Coefficients & Sum $2^{n} $ \\\hline
+
+  1 &  a+b& 1 1 & 2                                \\
+  2 & a^2 +2ab+b^2 & 1 2 1 & 4                     \\
+  3 & a^3+3a^{2}b+3ab^2+b^3 & 1 3 3 1 & 8                \\
+  4 & ---   & 1 4 6 4 1 & 16                         \\
+  5 & ---   & 1 5 10 10 5 1 & 32                     \\
+  - & etc. & etc. & etc.  &                        \\
+
+\end{tabular}
+\caption{\label{tab:widgets}Coefficients table}
+\end{table}
+
+Imagine that you want to find the sum of
+several terms in one line, say the middle two
+terms in line for n = 5.
+We quickly see that 10 + 10 = 20.
+But what if you want to find the sum of the middle
+10 terms in the line where n = 100? A problem like
+this could easily come up in a game of chance. This
+is what he meant by “laborious.”
+
+DeMoivre wanted to avoid having to add up all these coefficients. A solution is to describe the general shape of the distribution of the values on a line of coefficients without having to compute each one. We
+can see(as he noticed) that as number of event increase distribution approached a smooth curve.
+
+ex. Lets start with a binomial distribution for two event
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{images/0.png}
+\caption{\label{fig:bin2}Binomial distribution of two event.}
+\end{figure}
+
+Then adding more event
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{images/1.png}
+\caption{\label{fig:bin4}Binomial distribution of 4 event.}
+\end{figure}
+Then locking for a more crowded situation
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{images/2.png}
+\caption{\label{fig:bin12}Binomial distribution of 12 event.}
+\end{figure}
+
+De Moivre understand the important of this result and try to find a way to write this curve
+
+The probability  distribution of many natural phenomenal are approximately a normal
+\subsection{Gauss}
+Gauss about 1800, used the normal distribution to describe the pattern of random
+measurement error in observational data. Neither man used the name “normal curve.” That expression did not appear until the 1870s.
+\section{The Central Limit theorem }
+\subsection{Prove}
+The standard version of the central limit theorem was first proved by the French mathematician Pierre-Simon Laplace in 1810, states that the sum or average of an infinite sequence of independent and identically distributed random variables, when suitably rescaled, tends to a normal distribution.
+Fourteen years later the French mathematician Siméon-Denis Poisson began a continuing process of improvement and generalization.
+Laplace and his contemporaries were interested in the theorem primarily because of its importance in repeated measurements of the same quantity. If the individual measurements could be viewed as approximately independent and identically distributed, then their mean could be approximated by a normal distribution.
+\subsection{How to create Sections and Subsections}
+
+Simply use the section and subsection commands, as in this example document! With Overleaf, all the formatting and numbering is handled automatically according to the template you've chosen. If you're using Rich Text mode, you can also create new section and subsections via the buttons in the editor toolbar.
+
+\subsection{How to include Figures}
+
+First you have to upload the image file from your computer using the upload link in the file-tree menu. Then use the includegraphics command to include it in your document. Use the figure environment and the caption command to add a number and a caption to your figure. See the code for Figure \ref{fig:frog} in this section for an example.
+
+Note that your figure will automatically be placed in the most appropriate place for it, given the surrounding text and taking into account other figures or tables that may be close by. You can find out more about adding images to your documents in this help article on \href{https://www.overleaf.com/learn/how-to/Including_images_on_Overleaf}{including images on Overleaf}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.3\textwidth]{images/frog.jpg}
+\caption{\label{fig:frog}This frog was uploaded via the file-tree menu.}
+\end{figure}
+
+\subsection{How to add Tables}
+
+Use the table and tabular environments for basic tables --- see Table~\ref{tab:widgets}, for example. For more information, please see this help article on \href{https://www.overleaf.com/learn/latex/tables}{tables}. 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|r}
+Item & Quantity \\\hline
+Widgets & 42 \\
+Gadgets & 13
+\end{tabular}
+\caption{\label{tab:widgets}An example table.}
+\end{table}
+
+\subsection{How to add Comments and Track Changes}
+
+Comments can be added to your project by highlighting some text and clicking ``Add comment'' in the top right of the editor pane. To view existing comments, click on the Review menu in the toolbar above. To reply to a comment, click on the Reply button in the lower right corner of the comment. You can close the Review pane by clicking its name on the toolbar when you're done reviewing for the time being.
+
+Track changes are available on all our \href{https://www.overleaf.com/user/subscription/plans}{premium plans}, and can be toggled on or off using the option at the top of the Review pane. Track changes allow you to keep track of every change made to the document, along with the person making the change. 
+
+\subsection{How to add Lists}
+
+You can make lists with automatic numbering \dots
+
+\begin{enumerate}
+\item Like this,
+\item and like this.
+\end{enumerate}
+\dots or bullet points \dots
+\begin{itemize}
+\item Like this,
+\item and like this.
+\end{itemize}
+
+\subsection{How to write Mathematics}
+
+\LaTeX{} is great at typesetting mathematics. Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let
+\[S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
+      = \frac{1}{n}\sum_{i}^{n} X_i\]
+denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $\mathcal{N}(0, \sigma^2)$.
+
+
+\subsection{How to change the margins and paper size}
+
+Usually the template you're using will have the page margins and paper size set correctly for that use-case. For example, if you're using a journal article template provided by the journal publisher, that template will be formatted according to their requirements. In these cases, it's best not to alter the margins directly.
+
+If however you're using a more general template, such as this one, and would like to alter the margins, a common way to do so is via the geometry package. You can find the geometry package loaded in the preamble at the top of this example file, and if you'd like to learn more about how to adjust the settings, please visit this help article on \href{https://www.overleaf.com/learn/latex/page_size_and_margins}{page size and margins}.
+
+\subsection{How to change the document language and spell check settings}
+
+Overleaf supports many different languages, including multiple different languages within one document. 
+
+To configure the document language, simply edit the option provided to the babel package in the preamble at the top of this example project. To learn more about the different options, please visit this help article on \href{https://www.overleaf.com/learn/latex/International_language_support}{international language support}.
+
+To change the spell check language, simply open the Overleaf menu at the top left of the editor window, scroll down to the spell check setting, and adjust accordingly.
+
+\subsection{How to add Citations and a References List}
+
+You can simply upload a \verb|.bib| file containing your BibTeX entries, created with a tool such as JabRef. You can then cite entries from it, like this: \cite{greenwade93}. Just remember to specify a bibliography style, as well as the filename of the \verb|.bib|. You can find a \href{https://www.overleaf.com/help/97-how-to-include-a-bibliography-using-bibtex}{video tutorial here} to learn more about BibTeX.
+
+If you have an \href{https://www.overleaf.com/user/subscription/plans}{upgraded account}, you can also import your Mendeley or Zotero library directly as a \verb|.bib| file, via the upload menu in the file-tree.
+
+\subsection{Good luck!}
+
+We hope you find Overleaf useful, and do take a look at our \href{https://www.overleaf.com/learn}{help library} for more tutorials and user guides! Please also let us know if you have any feedback using the Contact Us link at the bottom of the Overleaf menu --- or use the contact form at \url{https://www.overleaf.com/contact}.
+
+\bibliographystyle{alpha}
+\bibliography{statistics}
+
+\end{document}
