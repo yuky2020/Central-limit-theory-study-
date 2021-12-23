@@ -4,3 +4,4 @@
 >>>INDEX_MACRO_DEFINITION:	i	\index{%s}          	t
 >>>INDEX_MACRO_DEFINITION:	g	\glossary{%s}       	t
 %---------------------------------------------------------------------
+	say
