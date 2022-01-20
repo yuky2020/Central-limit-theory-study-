@@ -8,6 +8,10 @@
 % Replace `letterpaper' with`a4paper' for UK/EU standard size
 \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 \usepackage{float}
+\usepackage{lmodern}
+
+\usepackage{scrextend}
+\changefontsizes[18pt]{14pt}
 
 % Useful packages
 \usepackage{amsmath}
@@ -28,16 +32,18 @@ I choose the Central limit theorem and in particular i concentrate my analysis  
 \section{Introduction}
 
 \section{Historical context}
-\subsection{Discovery of the Normal curve Chapter 0 of the CLT}
+\subsection{Discovery of the normal curve Chapter 0 of the CLT}
 The normal curve is perhaps the most important probability graph in all of statistics.
+
+Formula THAATH I NEED TO REWERITE
 Its formula is shown here with a
 familiar picture. The “e” in the formula
 is the irrational number we use as the
   base for natural logarithms. $ \mu $ and $ \sigma $ are
 the mean and standard deviation of the
 curve
-Formula THAATH I NEED TO REWERITE
-\subsection{Abram De Moivre Discoveries}
+
+\subsubsection{Abram De Moivre Discoveries}
 De Moivre pioneered the development of analytic geometry and the theory of probability by expanding upon the work of his predecessors, particularly Christiaan Huygens and several members of the Bernoulli family. He also produced the second textbook on probability theory.He was a consultant for  gamblers, in fact he derive the formula trying to  solving a gambling
 problem whose solution depended on finding the sum of the terms of a binomial distribution. Later work,especially by Gauss about 1800, used the normal distribution to describe the pattern of random
 measurement error in observational data. Neither man used the name “normal curve.” That expression did not appear until the 1870s.
@@ -61,6 +67,7 @@ probability. (The first edition had been published in 1718.)
 In DeMoivre’s work the normal curve formula did not look like it does now, in particular because there
 was no notation then for e. and there was no general sense of standard deviation, which is represented by $ \sigma $ in today’s equation.
 \subsubsection{Why did DeMoivre do it? What problem was he working on?}
+
 he is dealing with
 “Problems of Chance,” that he wants
 to see how likely it is that an
@@ -162,7 +169,7 @@ And so finally R= $ \frac{1}{\sqrt{2\pi}\sigma}$
 This is exactly the y value of the normal curve at the center where x = $ \mu $.
 $ y= \frac{1}{\sqrt{2\pi}\sigma }e^{{\frac{-(x-\mu)^{2}}{2\sigma^{2}}}}=  \frac{1}{\sqrt{2\pi}\sigma} $
 
-\subsubsection{Some statistical consequences of DeMoivre’s work on the normal curve.}
+\subsection{Some statistical consequences of DeMoivre’s work on the normal curve.}
 The formula itself would be found to have more and more applications, beyond just the approximation of a binomial distribution, especially as a model for the distribution of random measurement errors. Also,equally informative, the relationship $ \sigma = \frac{\sqrt{n}}{2}$, shows that the narrowness of the normal curve, as measured by $\sigma$, is proportional to the square-root of the sample size. This implies, for example, that if you wish to cut a margin of error in half, you will need four times as much information, not twice as much. Another way to say this is that the information you gain in collecting data is proportional, not to the number of pieces of data, but to its square root.
 
 De Moivre’s approximations to binomial distributions did not do justice to the universality that characterizes the CLT. For the sake of completeness, but also to demonstrate what tremendous progress Laplace’s approximations of 1810 represented, de Moivre’s 1733 paper should be recognized as a sort of “0th chapter,” as it were, in the history of the CLT.
@@ -171,11 +178,10 @@ De Moivre’s approximations to binomial distributions did not do justice to the
 
 % The probability  distribution of many natural phenomenal are approximately a normal
 \subsection{Gauss}
-Gauss about 1800, used the normal distribution to describe the pattern of random
-measurement error in observational data. Neither man used the name “normal curve.” That expression did not appear until the 1870s.
-\section{The Central Limit Theorem from Laplace
-to Cauchy: Changes in Stochastic Objectives
-and in Analytical Methods}
+Gauss about 1800, used the normal distribution to describe the pattern of random measurement error in observational data. Neither man used the name “normal curve.” That expression did not appear until the 1870s.
+
+\section{The Central Limit Theorem from Laplace to Cauchy: 
+Changes in Stochastic Objectives and in Analytical Methods}
 in 1812, Pierre-Simon de Laplace (1749–1827) published the first edition of his
 Théorie analytique des probabilités (henceforth simply abbreviated by TAP).1 With
 its typical problems, stochastic models, and analytic methods this book would considerably influence probability theory and mathematical statistics right until the beginning of the 20th century.
@@ -238,15 +244,55 @@ was within given limits.In the most simple case, each of the n variables had the
 same rectangular distribution between 0 and h. For the probability P that the sum
 of those variables was between a and b with $ 0 \leq a< b \leq nh $ , Laplace obtained (in
 modern notation)
-
 $ P= \frac{1}{h^{n}n!}(\sum\limits_{n=0}^{N}\binom{n}{i}(-1)^{i}(b-ih)^{n}- \sum\limits_{i=0}^{M}\binom{n}{i}(-1)^{i}(a-ih)^{n}  ) $
 
 where $ N= \min(n,[\frac{b}{h}]) $ and $ M= \min(n,[\frac{a}{h}])$.
-Formulae of this kind were too complicated for a direct numerical evaluation if the number of random variables exceeded a relatively small value. The arithmetic mean of the actual observed angles of inclination of the then known 63 comets was $46^{\circ} 16^{\prime} $. Through the use of
-upper formula  alone, Laplace was unable to address the hypothesis that the comets’ planes
-of motion resulted at “random.” At this stage of his mathematical work, however,Laplace could not develop usable approximation.
+Formulae of this kind were too complicated for a direct numerical evaluation if the number of random variables exceeded a relatively small value. The arithmetic mean of the actual observed angles of inclination of the then known 63 comets was $46^{\circ} 16^{\prime} $. Through the use of upper formula  alone, Laplace was unable to address the hypothesis that the comets’ planes of motion resulted at “random.” At this stage of his mathematical work, however,Laplace could not develop usable approximation.
+Laplace infact developed techniques for approximating integrals depending on a "great number" such as the Gamma function in subsequent years.
 
-\subsection{Prove}
+\subsubsection{Deduction  of Approximating Normal Distributions}
+Laplace for the first time exemplified his approach to the CLT in the “Mémoire
+sur les approximations des formules qui sont fonctions des très grands nombres
+et sur leur application aux probabilités” [1810]. Crucial for this success in
+approximating distributions of sums of independent random variables by normal
+distributions was his modification of generating functions.
+
+Let me demonstrate the essentials of his approach to the CLT  in the special case of identically distributed
+random variables X1 ; : : : ; Xn , which have zero means and which take the val-
+ues $ \frac{k}{m}$(m a given natural number, k = -m,-m+1,...,m-1,m )with the
+respective probabilities Pk .
+For the calculation of the probability Pj that $ \sum_{l=1}^{n} X_{l} $ 
+has the value m$\frac{j}{m}(-nm \leq j \leq nm)$, Laplace made use of the generating function:
+\[ T(t) = \sum_{k=-n}^{m} Pk^{t^{k}}  \]
+Due to the mutual independence of the Xl ’ which was usually only tacitly presupposed by Laplace Pj is equal to the coefficient
+of $ t^{j}  $ in $ [T(t)]^n  $  after carrying out the multiplication.
+The direct execution of this method—its general principle going back to de Moivre, see [Seal 1949]—leads at
+best to very complicated algebraic terms for $P_j$ .
+Laplace, however, introduced the trick of substituting the variable t by $ e^{ix} (i= \sqrt{-1})$. Thus, he introduced the (now so-called) characteristic functions in a special case.
+
+  From: \[ \frac{1}{2\pi} \int _{-\pi}^{\pi}e^{-itx}e^{isx}dx=\delta_{ts} (t,s \in \mathbb{Z}) \]   
+  it follows that
+  \[ P(j) = \frac{1}{2\pi} \int _{-\pi}^{\pi} e^{-ijx}[\sum_{k=-m}^{m} pke^{ikx}]^n dx. \] 
+  The last integral above was at least formally accessible to Laplace’s method of approximation. There was, however, a certain modification necessary, as Laplace did not consider an expansion of the whole integrand around its maximum at
+x = 0, but only of the power with exponent n (equal to the characteristic function).
+By expanding $e^{ikx}$ into powers of x and taking into consideration that
+$  \sum_{k=-m}^{m} pk^{k}= 0 $ and with the substitution $ m^2\sigma^2 = \sum_{k=-m}^{m} pk^{k^2}$,we obtain 
+\[ P(j) = \frac{1}{2\pi} \int _{-\pi}^{\pi} e^{-ijx}[1-\frac{m^2\sigma^2x^2}{2} -iAx^3 + ... ]^n dx. \] where A is a constant depending on $ \sum_{k=-m}^{m} pk^{k^3}$.
+The formal expansion of :
+\[ log[1-\frac{m^2\sigma^2x^2}{2} -iAx^3 + ... ]^n = : log z \]
+into a series of powers of x x leads to:
+\[ log z= -\frac{m^2\sigma^2x^2}{2} -iAx^3 + ... , \]
+
+and therefrom to
+\[  z= e^{-\frac{m^2\sigma^2x^2}{2} -iAx^3 + ...}= e^{\frac{m^2\sigma^2x^2}{2}}(1-iAnx^3+...).   \]
+After transforming the variable of integration according to $ x= \frac{y}{\sqrt{n}}$, the result is 
+\[ P(j) = \frac{1}{2\pi\sqrt{n}} \int _{-\pi\sqrt{n}}^{\pi\sqrt{n}} e^{-ij\frac{y}{\sqrt{n}}}          e^{-\frac{m^2\sigma^2y^2}{2}}  ( 1 - \frac{iAy^3}{\sqrt{n}} + ...)  dy. \] For an approximation p with a “very large” n we ignore, like Laplace, all series terms  with a power of $ \sqrt{n}$ in the denominator, and at the same time, set the limits of integration equal to $\pm \infty$.   
+In this way we get
+\[ P(j) = \frac{1}{2\pi\sqrt{n}} \int _{- \infty}^{\infty}  e^{-ij\frac{y}{\sqrt{n}}}          e^{-\frac{m^2\sigma^2y^2}{2}}  dy. \]
+where the last integral is, as Laplace showed in different ways, equal to:
+
+\[  \frac{1}{m\sigma\sqrt{2\pi n}}e^{-\frac{j^2}{2m^2\sigma^2n}}  \]
+\subsection{Prove}Ded
 The standard version of the central limit theorem was first proved by the French mathematician Pierre-Simon Laplace in 1810, states that the sum or average of an infinite sequence of independent and identically distributed random variables, when suitably rescaled, tends to a normal distribution.
 Fourteen years later the French mathematician Siméon-Denis Poisson began a continuing process of improvement and generalization.
 Laplace and his contemporaries were interested in the theorem primarily because of its importance in repeated measurements of the same quantity. If the individual measurements could be viewed as approximately independent and identically distributed, then their mean could be approximated by a normal distribution.
